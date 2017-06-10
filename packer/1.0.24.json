@@ -1,0 +1,22 @@
+{
+  "builders": [
+    {
+      "type": "docker",
+      "image": "node:argon-slim",
+      "commit": false,
+      "export_path": "./builds/1.0.24.tar",
+      "changes": [
+        "MAINTAINER indrajit",
+        "ENV NPM_CONFIG_LOGLEVEL error",
+        "WORKDIR /src",
+        "ENTRYPOINT [\"npm\", \"run\", \"dashboard\"]"
+      ]
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "script": "../1.0.24/provision.sh"
+    }
+  ]
+}
