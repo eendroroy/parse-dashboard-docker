@@ -22,6 +22,7 @@ You can also use a docker-compose.yml file. see [docker-compose.yml](latest/dock
 ### builds
 
 - latest - [**doc**](latest/README.md)
+- 1.1.0 - [**doc**](1.1.0/README.md)
 - 1.0.27 - [**doc**](1.0.27/README.md)
 - 1.0.26 - [**doc**](1.0.26/README.md)
 - 1.0.25 - [**doc**](1.0.25/README.md)
