@@ -22,10 +22,10 @@
 \rm -rf CHANGELOG.md
 \rm -rf CONTRIBUTING.md
 \rm -rf Dockerfile
-\rm -rf LICENSE
 \rm -rf README.md
 
 \npm install
 \npm run build
 \npm cache clear
 \rm -rf ~/.npm
+
