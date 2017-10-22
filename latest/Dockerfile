@@ -2,8 +2,26 @@ FROM node:argon-slim
 
 MAINTAINER indrajit
 
-COPY ./provision.sh /tmp/provision.sh
-RUN bash /tmp/provision.sh
+RUN apt-get update && \
+    apt-get install unzip && \
+    rm -rf /var/cache/apt/
+
+WORKDIR /tmp
+
+RUN wget https://github.com/parse-community/parse-dashboard/archive/master.zip && \
+    unzip master.zip && \
+    mkdir -p /src && \
+    mv parse-dashboard-master/* /src/
+
+WORKDIR /src
+
+RUN rm -rf .git .github .dockerignore .eslintrc.json .gitignore .travis.yml \
+    CHANGELOG.md CONTRIBUTING.md Dockerfile README.md
+
+RUN npm install && \
+    npm run build && \
+    npm cache clear && \
+    rm -rf ~/.npm
 
 ENV NPM_CONFIG_LOGLEVEL error
 
