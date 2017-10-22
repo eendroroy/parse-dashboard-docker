@@ -1,0 +1,12 @@
+version: '2'
+services:
+  parse-dashboard:
+    image: eendroroy/parsedashboard:1.0.28
+    volumes:
+      - './parse-dashboard-config.json:/src/Parse-Dashboard/parse-dashboard-config.json:ro'
+    ports:
+      - "80:4040"
+      - "4040:4040"
+    environment:
+      - PARSE_DASHBOARD_ALLOW_INSECURE_HTTP=1
+
