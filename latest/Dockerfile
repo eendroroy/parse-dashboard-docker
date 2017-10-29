@@ -10,18 +10,13 @@ WORKDIR /tmp
 
 RUN wget https://github.com/parse-community/parse-dashboard/archive/master.zip && \
     unzip master.zip && \
-    mkdir -p /src && \
-    mv parse-dashboard-master/* /src/
+    rm -rf .git .github .dockerignore .eslintrc.json .gitignore .travis.yml \
+    CHANGELOG.md CONTRIBUTING.md Dockerfile README.md && \
+    mkdir -p /src && mv parse-dashboard-master/* /src/ &&
 
 WORKDIR /src
 
-RUN rm -rf .git .github .dockerignore .eslintrc.json .gitignore .travis.yml \
-    CHANGELOG.md CONTRIBUTING.md Dockerfile README.md
-
-RUN npm install && \
-    npm run build && \
-    npm cache clear && \
-    rm -rf ~/.npm
+RUN npm install && npm run build && npm cache clear && rm -rf ~/.npm
 
 ENV NPM_CONFIG_LOGLEVEL error
 
