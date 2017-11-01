@@ -12,7 +12,7 @@ RUN wget https://github.com/parse-community/parse-dashboard/archive/master.zip &
     unzip master.zip && \
     rm -rf .git .github .dockerignore .eslintrc.json .gitignore .travis.yml \
     CHANGELOG.md CONTRIBUTING.md Dockerfile README.md && \
-    mkdir -p /src && mv parse-dashboard-master/* /src/ &&
+    mkdir -p /src && mv parse-dashboard-master/* /src/
 
 WORKDIR /src
 
