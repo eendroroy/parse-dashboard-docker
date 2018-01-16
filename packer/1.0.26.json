@@ -16,7 +16,13 @@
   "provisioners": [
     {
       "type": "shell",
-      "script": "../1.0.26/provision.sh"
+      "inline": [
+        "apt-get update && apt-get install unzip && rm -rf /var/cache/apt/",
+        "cd /tmp && wget https://github.com/parse-community/parse-dashboard/archive/1.0.26.zip"
+        "unzip master.zip && mkdir -p /src && mv parse-dashboard-master/* /src/",
+        "cd /src && rm -rf .git .github .dockerignore Dockerfile",
+        "npm install && npm run build && npm cache clear && rm -rf ~/.npm"
+      ]
     }
   ]
 }
