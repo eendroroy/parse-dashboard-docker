@@ -1,7 +1,7 @@
 version: '2'
 services:
   parse-dashboard:
-    image: eendroroy/parsedashboard:1.1.0
+    image: eendroroy/parsedashboard:1.1.1
     volumes:
       - './parse-dashboard-config.json:/src/Parse-Dashboard/parse-dashboard-config.json:ro'
     ports:
