@@ -1,0 +1,28 @@
+{
+  "builders": [
+    {
+      "type": "docker",
+      "image": "node:argon-slim",
+      "commit": false,
+      "export_path": "./builds/1.1.1.tar",
+      "changes": [
+        "MAINTAINER indrajit",
+        "ENV NPM_CONFIG_LOGLEVEL error",
+        "WORKDIR /src",
+        "ENTRYPOINT [\"npm\", \"run\", \"dashboard\"]"
+      ]
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "apt-get update && apt-get install unzip && rm -rf /var/cache/apt/",
+        "cd /tmp && wget https://github.com/parse-community/parse-dashboard/archive/1.1.1.zip"
+        "unzip master.zip && mkdir -p /src && mv parse-dashboard-master/* /src/",
+        "cd /src && rm -rf .git .github .dockerignore Dockerfile",
+        "npm install && npm run build && npm cache clear && rm -rf ~/.npm"
+      ]
+    }
+  ]
+}
