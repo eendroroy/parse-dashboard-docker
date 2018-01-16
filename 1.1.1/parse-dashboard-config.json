@@ -1,0 +1,37 @@
+{
+  "apps": [
+    {
+      "serverURL": "https://server1/parse",
+      "appId": "appid1",
+      "masterKey": "masterkey1",
+      "javascriptKey": "jskey1",
+      "restKey" : "restkey1",
+      "appName": "APP1"
+    },
+    {
+      "serverURL": "https://server2/parse",
+      "appId": "appid2",
+      "masterKey": "masterkey2",
+      "javascriptKey": "jskey2",
+      "restKey" : "restkey2",
+      "appName": "APP2"
+    },
+    {
+      "serverURL": "https://server3/parse",
+      "appId": "appid3",
+      "masterKey": "masterkey3",
+      "javascriptKey": "jskey3",
+      "restKey" : "restkey3",
+      "appName": "APP3"
+    }
+  ],
+  "users": [
+    {
+      "user":"user",
+      "pass":"encryptedpassword"
+    }
+  ],
+  "useEncryptedPasswords": true,
+  "trustProxy": 1,
+  "allowInsecureHTTP": 1
+}
